@@ -1,0 +1,22 @@
+create database egatepass;
+
+
+use egatepass;
+
+
+create table users (
+	userId integer primary key auto_increment,
+	firstName varchar(30),
+	email varchar(30),
+	password varchar(30),
+	role  integer,
+	enrollmentNum varchar(30)
+); 
+	
+role => enum => 1 : admin 2 : HOD 3 : Faculty  4 : student 5:security 
+
+Admin -> never signup 
+admin can add any user 
+signup --> student only  -> hod / faculty approve 
+
+
