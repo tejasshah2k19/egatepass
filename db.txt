@@ -20,3 +20,12 @@ admin can add any user
 signup --> student only  -> hod / faculty approve 
 
 
+create table pass(
+	passId integer primary key auto_increment,
+	userId integer,
+	reason varchar(256),
+	outtime varchar(8),
+	approve boolean,
+	passDate varchar(18)
+);
+	
