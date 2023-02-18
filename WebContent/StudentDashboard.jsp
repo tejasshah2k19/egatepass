@@ -9,7 +9,7 @@
 <body>
 
 	<a href="ApplyForPass.jsp">Apply For Pass</a>
-	<a href="">Status For Pass</a>
+	<a href="ViewMyRequestServlet">Status For Pass</a>
 	<a href="">Logout</a>
 
 </body>

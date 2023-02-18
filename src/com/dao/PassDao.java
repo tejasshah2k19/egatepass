@@ -2,6 +2,8 @@ package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.bean.PassBean;
 import com.util.DbConnection;
@@ -23,5 +25,35 @@ public class PassDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public ArrayList<PassBean> getAllMyRequest(int userId) {
+		ArrayList<PassBean> pastRequest = new ArrayList<PassBean>();
+		try {
+			Connection con = DbConnection.getConnection();
+			PreparedStatement pstmt = con.prepareStatement("select * from pass where userId = ? order by passId desc ");
+			pstmt.setInt(1, userId);
+
+			ResultSet rs = pstmt.executeQuery();// select --> read
+
+			while(rs.next()) {
+				PassBean pass = new PassBean();
+				
+				pass.setUserId( rs.getInt("userId"));
+				pass.setApprove(rs.getBoolean("approve"));
+				pass.setOutTime(rs.getString("outtime"));
+				pass.setPassDate(rs.getString("passDate"));
+				pass.setPassId(rs.getInt("passId"));
+				pass.setReason(rs.getString("reason"));
+				
+				pastRequest.add(pass);
+			}
+			
+			return pastRequest;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 }

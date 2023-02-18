@@ -37,6 +37,8 @@ public class LoginServlet extends HttpServlet {
 				// cookie -> userId set -->
 				//String,String
 				Cookie c = new Cookie("userId", user.getUserId()+"");
+				//key:name->string 
+				//value->string 
 				response.addCookie(c);
 				
 				

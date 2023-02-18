@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.bean.PassBean;
 import com.dao.PassDao;
 
+//new request 
 @WebServlet("/ApplyForPassServlet")
 public class ApplyForPassServlet extends HttpServlet {
 
@@ -39,18 +40,25 @@ public class ApplyForPassServlet extends HttpServlet {
 			}
 		}
 
+		RequestDispatcher rd = null;
 		// dbsave
-		PassBean pass = new PassBean();
-		pass.setUserId(userId);
-		pass.setReason(reason);
-		pass.setPassDate(today);
-		pass.setApprove(false);
-		pass.setOutTime(outTime);
+		if (userId == -1 || userId == 0) {
+			request.setAttribute("error", "Please Login Before Access this Service");
+			rd = request.getRequestDispatcher("Login.jsp");
 
-		PassDao passDao = new PassDao();
-		passDao.addPassRequest(pass);
+		} else {
+			PassBean pass = new PassBean();
+			pass.setUserId(userId);
+			pass.setReason(reason);
+			pass.setPassDate(today);
+			pass.setApprove(false);
+			pass.setOutTime(outTime);
 
-		RequestDispatcher rd = request.getRequestDispatcher("StudentDashboard.jsp");
+			PassDao passDao = new PassDao();
+			passDao.addPassRequest(pass);
+			rd = request.getRequestDispatcher("StudentDashboard.jsp");
+
+		}
 		rd.forward(request, response);
 		// hod email
 
