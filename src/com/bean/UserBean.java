@@ -2,9 +2,11 @@ package com.bean;
 
 public class UserBean {
 
-	private Integer userId,role;
+	private Integer userId,role,otp;
 	private String firstName, email, password, enrollmentNum;
 	boolean approve;
+	
+	
 	public Integer getUserId() {
 		return userId;
 	}
@@ -60,5 +62,14 @@ public class UserBean {
 	public void setApprove(boolean approve) {
 		this.approve = approve;
 	}
+
+	public Integer getOtp() {
+		return otp;
+	}
+
+	public void setOtp(Integer otp) {
+		this.otp = otp;
+	}
+	
 
 }

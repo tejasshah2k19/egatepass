@@ -17,7 +17,7 @@
 	<%
 		String error = (String) request.getAttribute("error");
 	%>
-	<form action="LoginServlet" method="post">
+	<form action="LoginServlet1" method="post">
 
 		<%
 			if (error == null) {
@@ -35,7 +35,7 @@
 		<Br> <input type="submit" value="Login"> <font
 			color="red"><%=error == null ? "" : error%></font><br>
 	</form>
-	<a href="Signup.jsp">Signup</a>
+	<a href="Signup.jsp">Signup</a> | <a href="ForgetPassword.jsp">ForgetPassword?</a>
 
 
 

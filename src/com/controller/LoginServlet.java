@@ -14,7 +14,7 @@ import com.bean.UserBean;
 import com.constants.Role;
 import com.dao.UserDao;
 
-@WebServlet("/LoginServlet")
+@WebServlet("/LoginServlet1")
 public class LoginServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -39,6 +39,7 @@ public class LoginServlet extends HttpServlet {
 				Cookie c = new Cookie("userId", user.getUserId()+"");
 				//key:name->string 
 				//value->string 
+				c.setMaxAge(60*60*24*5);
 				response.addCookie(c);
 				
 				

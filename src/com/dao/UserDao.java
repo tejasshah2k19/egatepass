@@ -94,4 +94,42 @@ public class UserDao {
 		}
 		return null;
 	}
+
+	public UserBean findByEmail(String email) {
+		try {
+			Connection con = DbConnection.getConnection();
+			PreparedStatement pstmt = con.prepareStatement("select * from users where email = ?");
+			pstmt.setString(1, email);
+
+			ResultSet rs = pstmt.executeQuery();//
+			if (rs.next()) {
+				UserBean user = new UserBean();
+				user.setUserId(rs.getInt("userId"));
+				user.setEmail(rs.getString("email"));
+				user.setRole(rs.getInt("role"));
+				user.setFirstName(rs.getString("firstName"));
+				user.setOtp(rs.getInt("otp"));
+				return user;
+			} else {
+				return null;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public void updateOtp(UserBean userBean) {
+		try {
+			Connection con = DbConnection.getConnection();
+			PreparedStatement pstmt = con.prepareStatement("update users set otp = ? where userId = ? ");
+			pstmt.setInt(1, userBean.getOtp());
+			pstmt.setInt(2, userBean.getUserId());
+
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

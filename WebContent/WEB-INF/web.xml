@@ -9,5 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
- 
+  <servlet>
+    <description></description>
+    <display-name>ForgetPasswordServlet</display-name>
+    <servlet-name>ForgetPasswordServlet</servlet-name>
+    <servlet-class>com.controller.ForgetPasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ForgetPasswordServlet</servlet-name>
+    <url-pattern>/ForgetPasswordServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
