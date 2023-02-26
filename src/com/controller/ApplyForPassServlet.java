@@ -51,12 +51,12 @@ public class ApplyForPassServlet extends HttpServlet {
 			pass.setUserId(userId);
 			pass.setReason(reason);
 			pass.setPassDate(today);
-			pass.setApprove(false);
+			pass.setApprove(0);// 0 -> pending 
 			pass.setOutTime(outTime);
 
 			PassDao passDao = new PassDao();
 			passDao.addPassRequest(pass);
-			rd = request.getRequestDispatcher("StudentDashboard.jsp");
+			rd = request.getRequestDispatcher("StudentDashboardServlet");
 
 		}
 		rd.forward(request, response);

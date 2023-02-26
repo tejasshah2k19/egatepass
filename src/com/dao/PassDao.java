@@ -18,7 +18,7 @@ public class PassDao {
 			pstmt.setInt(1, pass.getUserId());
 			pstmt.setString(2, pass.getReason());
 			pstmt.setString(3, pass.getOutTime());
-			pstmt.setBoolean(4, pass.getApprove());
+			pstmt.setInt(4, pass.getApprove());
 			pstmt.setString(5, pass.getPassDate());
 
 			pstmt.executeUpdate();
@@ -40,7 +40,7 @@ public class PassDao {
 				PassBean pass = new PassBean();
 				
 				pass.setUserId( rs.getInt("userId"));
-				pass.setApprove(rs.getBoolean("approve"));
+				pass.setApprove(rs.getInt("approve"));
 				pass.setOutTime(rs.getString("outtime"));
 				pass.setPassDate(rs.getString("passDate"));
 				pass.setPassId(rs.getInt("passId"));

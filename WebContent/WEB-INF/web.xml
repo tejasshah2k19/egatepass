@@ -19,4 +19,14 @@
     <servlet-name>ForgetPasswordServlet</servlet-name>
     <url-pattern>/ForgetPasswordServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StudentDashboardServlet</display-name>
+    <servlet-name>StudentDashboardServlet</servlet-name>
+    <servlet-class>com.controller.StudentDashboardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentDashboardServlet</servlet-name>
+    <url-pattern>/StudentDashboardServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

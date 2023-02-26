@@ -4,7 +4,7 @@ public class PassBean {
 	Integer passId;
 	Integer userId;
 	String reason, outTime;
-	Boolean approve;
+	Integer approve;//0 - pending , 1- accepted , 2-rejected 
 	String passDate;
 
 	public Integer getPassId() {
@@ -39,11 +39,14 @@ public class PassBean {
 		this.outTime = outTime;
 	}
 
-	public Boolean getApprove() {
+
+ 
+
+	public Integer getApprove() {
 		return approve;
 	}
 
-	public void setApprove(Boolean approve) {
+	public void setApprove(Integer approve) {
 		this.approve = approve;
 	}
 

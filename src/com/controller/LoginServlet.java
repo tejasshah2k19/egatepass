@@ -32,18 +32,18 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("error", "Invalid Credentials");
 			rd = request.getRequestDispatcher("Login.jsp");
 		} else {
-			// good to go
+			// good to gos
 			if (user.getRole() == Role.STUDENT.role) {
 				// cookie -> userId set -->
 				//String,String
 				Cookie c = new Cookie("userId", user.getUserId()+"");
 				//key:name->string 
 				//value->string 
-				c.setMaxAge(60*60*24*5);
+				c.setMaxAge(60*60*24*5);//5days 
 				response.addCookie(c);
 				
 				
-				rd = request.getRequestDispatcher("StudentDashboard.jsp");
+				rd = request.getRequestDispatcher("StudentDashboardServlet");
 			} else if (user.getRole() == Role.ADMIN.role) {
 				rd = request.getRequestDispatcher("AdminDashboard.jsp");
 			} else if (user.getRole() == Role.FACULTY.role) {
